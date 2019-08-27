@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class App extends Component {
   state = {
-    inputs: ["fredjie", "salipow"],
+    inputs: ["fredjie", "salipow","the%20carry%20rumble"],
     loading: true,
     players: []
   };
@@ -27,21 +27,23 @@ class App extends Component {
   }
 
   render() {
-    //console.log(this.state.players);
     return (
       <div className="container">
         <div className="col-xs-12">
           <h1>PLAYERS</h1>
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">
+          {this.state.players.map(player => {
+            return (
+              <li key={player.data.platformInfo.platformUserId}>
                 {this.state.loading && <p>Loading...</p>}
                 {!this.state.loading &&
-                  this.state.players[0].data.platformInfo
-                    .platformUserIdentifier}
-              </h5>
-            </div>
-          </div>
+                  player.data.platformInfo.platformUserIdentifier +
+                    " | " +
+                    player.data.segments[0].stats.tier.displayValue +
+                    " | " +
+                    player.data.segments[0].stats.leaguePoints.displayValue}
+              </li>
+            );
+          })}
         </div>
       </div>
     );
