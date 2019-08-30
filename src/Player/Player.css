@@ -1,0 +1,30 @@
+table {
+  border-spacing: 10px;
+  text-align: center;
+}
+td {
+  padding-right: 1.5vw;
+  padding-bottom: 1.5vh;
+  padding-top: 1.5vh;
+  padding-left: 1.5vw;
+}
+.thead {
+  text-align: center;
+  padding: 1.5vw;
+}
+.profileIcon {
+  border-radius: 50%;
+  max-height: 4.5vh;
+}
+.tierIcon {
+  height: 17%;
+  width: auto;
+}
+tbody tr:nth-child(odd) {
+  background-color: #182338;
+  color: #7986a3;
+}
+tbody tr:first-child td {
+  background-color: #41b7a1;
+  color: #182338;
+}
