@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Player from "./Player/Player";
-import "./Player/Player.css";
+import PlayerBubble from "./Player/PlayerBubble";
+import "./App.css";
 
+//This is a custom ranking system for players required for the sort function
 const ranks = {
   "IRON IV": 100,
   "IRON III": 200,
@@ -43,8 +45,26 @@ class App extends Component {
     loading: true,
     players: []
   };
+
+  handleDelete = index => {
+    let joined = [];
+    joined = [...this.state.players];
+    joined.splice(index, 1);
+    const loading = !joined.length > 0;
+    this.setState({
+      inputs: [
+        "fredjie",
+        "salipow",
+        "the carry rumble",
+        "twisted john",
+        "mart sidi"
+      ],
+      loading: loading,
+      players: joined
+    });
+  };
+  //Sort players by their ranks
   sortByRanks = (playerOne, playerTwo) => {
-    // TODO : do i really need to pass al that infos ?
     let firstIndex =
       ranks[playerOne.data.segments[0].stats.tier.displayValue] +
       playerOne.data.segments[0].stats.leaguePoints.value;
@@ -53,8 +73,9 @@ class App extends Component {
       playerTwo.data.segments[0].stats.leaguePoints.value;
 
     return secondIndex - firstIndex;
-    //TODO : RETURN TRUE OR FALSE
   };
+
+  //Fetch each player's stats when the component get mounted
   componentDidMount() {
     let joined = [];
     this.state.inputs.map(name => {
@@ -63,7 +84,7 @@ class App extends Component {
       )
         .then(res => res.json())
         .then(player => {
-          joined = [...this.state.players];
+          joined = [...this.state.players]; //using the new spread operator to clone the state
           joined.push(player);
           this.setState({
             inputs: [
@@ -81,58 +102,78 @@ class App extends Component {
             ranks[player.data.segments[0].stats.tier.displayValue] +
               player.data.segments[0].stats.leaguePoints.value
           );
+          // Sort the state with every new input
+          this.state.players.sort(this.sortByRanks);
         })
         .catch(console.log);
     });
   }
 
-  //{this.state.loading && <p>Loading...</p>}
   render() {
-    this.state.players.sort(this.sortByRanks);
     return (
       <div>
         {!this.state.loading && (
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Rank</th>
-                <th scope="col">Player Icon </th>
-                <th scope="col">Player Name</th>
-                <th scope="col">Tier icon</th>
-                <th scope="col">Tier</th>
-                <th scope="col">Points</th>
-                <th scope="col">Win %</th>
-                <th scope="col">Wins</th>
-                <th scope="col">Losses</th>
-                <th scope="col">Game Played</th>
-              </tr>
-            </thead>
-            <tbody>
+          <div>
+            <div>
               {this.state.players.map((player, i) => {
                 return (
-                  <Player
+                  <PlayerBubble
                     id={player.data.platformInfo.platformUserId}
-                    rank={i}
-                    icon={player.data.platformInfo.avatarUrl}
-                    name={player.data.platformInfo.platformUserIdentifier}
-                    tierIcon={
-                      player.data.segments[0].stats.tier.metadata.imageUrl
-                    }
-                    tierValue={player.data.segments[0].stats.tier.displayValue}
-                    lp={player.data.segments[0].stats.leaguePoints.displayValue}
-                    winRate={
-                      player.data.segments[0].stats.wlPercentage.displayValue
-                    }
-                    wins={player.data.segments[0].stats.wins.displayValue}
-                    losses={player.data.segments[0].stats.losses.displayValue}
-                    gamePlayed={
-                      player.data.segments[0].stats.matchesPlayed.displayValue
-                    }
+                    playerIcon={player.data.platformInfo.avatarUrl}
+                    playerName={player.data.platformInfo.platformUserIdentifier}
+                    onDelete={() => {
+                      this.handleDelete(i);
+                    }}
                   />
                 );
               })}
-            </tbody>
-          </table>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Rank</th>
+                  <th scope="col">Player Icon </th>
+                  <th scope="col">Player Name</th>
+                  <th scope="col">Tier icon</th>
+                  <th scope="col">Tier</th>
+                  <th scope="col">Points</th>
+                  <th scope="col">Win %</th>
+                  <th scope="col">Wins</th>
+                  <th scope="col">Losses</th>
+                  <th scope="col">Game Played</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.players.map((player, i) => {
+                  return (
+                    <Player
+                      id={player.data.platformInfo.platformUserId}
+                      rank={i}
+                      icon={player.data.platformInfo.avatarUrl}
+                      name={player.data.platformInfo.platformUserIdentifier}
+                      tierIcon={
+                        player.data.segments[0].stats.tier.metadata.imageUrl
+                      }
+                      tierValue={
+                        player.data.segments[0].stats.tier.displayValue
+                      }
+                      lp={
+                        player.data.segments[0].stats.leaguePoints.displayValue
+                      }
+                      winRate={
+                        player.data.segments[0].stats.wlPercentage.displayValue
+                      }
+                      wins={player.data.segments[0].stats.wins.displayValue}
+                      losses={player.data.segments[0].stats.losses.displayValue}
+                      gamePlayed={
+                        player.data.segments[0].stats.matchesPlayed.displayValue
+                      }
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     );
