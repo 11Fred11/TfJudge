@@ -28,3 +28,7 @@ tbody tr:first-child td {
   background-color: #41b7a1;
   color: #182338;
 }
+.flex {
+  display: flex;
+  margin: 5vh;
+}

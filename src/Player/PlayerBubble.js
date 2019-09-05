@@ -3,7 +3,7 @@ import "./Player.css";
 
 const playerBubble = props => {
   return (
-    <div className="container">
+    <div className="container" key={props.id}>
       <img src={props.playerIcon} alt="Profile icon" className="bubble" />
       <p className="title">{props.playerName}</p>
       <div className="overlay"></div>

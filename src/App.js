@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Player from "./Player/Player";
 import PlayerBubble from "./Player/PlayerBubble";
+import SearchBar from "./Global/SearchBar";
 import "./App.css";
 
 //This is a custom ranking system for players required for the sort function
@@ -40,7 +41,8 @@ class App extends Component {
       "salipow",
       "the carry rumble",
       "twisted john",
-      "mart sidi"
+      "mart sidi",
+      "balha"
     ],
     loading: true,
     players: []
@@ -57,7 +59,8 @@ class App extends Component {
         "salipow",
         "the carry rumble",
         "twisted john",
-        "mart sidi"
+        "mart sidi",
+        "balha"
       ],
       loading: loading,
       players: joined
@@ -97,24 +100,20 @@ class App extends Component {
             loading: false,
             players: joined
           });
-          console.log(
-            player.data.platformInfo.platformUserIdentifier,
-            ranks[player.data.segments[0].stats.tier.displayValue] +
-              player.data.segments[0].stats.leaguePoints.value
-          );
-          // Sort the state with every new input
-          this.state.players.sort(this.sortByRanks);
         })
         .catch(console.log);
     });
   }
 
   render() {
+    // Sort the state with every new input
+    this.state.players.sort(this.sortByRanks);
     return (
       <div>
+        <SearchBar />
         {!this.state.loading && (
           <div>
-            <div>
+            <div className="flex">
               {this.state.players.map((player, i) => {
                 return (
                   <PlayerBubble
