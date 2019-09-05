@@ -48,6 +48,9 @@ class App extends Component {
     players: []
   };
 
+  searchPlayer = player => {
+    alert("we got : " + player.name + " " + player.region);
+  };
   handleDelete = index => {
     let joined = [];
     joined = [...this.state.players];
@@ -81,6 +84,7 @@ class App extends Component {
   //Fetch each player's stats when the component get mounted
   componentDidMount() {
     let joined = [];
+    // eslint-disable-next-line
     this.state.inputs.map(name => {
       fetch(
         `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${name}?region=EUW`
@@ -110,7 +114,7 @@ class App extends Component {
     this.state.players.sort(this.sortByRanks);
     return (
       <div>
-        <SearchBar />
+        <SearchBar searchPlayer={this.searchPlayer} />
         {!this.state.loading && (
           <div>
             <div className="flex">
