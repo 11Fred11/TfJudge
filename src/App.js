@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Player from "./Player/Player";
 import PlayerBubble from "./Player/PlayerBubble";
 import SearchBar from "./SearchBar/SearchBar";
+import tftLogo from "./images/Teamfight_Tactics_Logo.png";
 import "./App.css";
 
 //This is a custom ranking system for players required for the sort function
@@ -112,6 +113,13 @@ class App extends Component {
     this.state.players.sort(this.sortByRanks);
     return (
       <div className="mainContainer">
+        <div className="tftLogo">
+          <img src={tftLogo} alt="TFT LOGO" />
+          <p>
+            I don't know what to write here so use your imagination please,
+            thanks.
+          </p>
+        </div>
         <SearchBar searchPlayer={this.searchPlayer} />
         {!this.state.loading && (
           <div className="playersInfo">
@@ -134,8 +142,10 @@ class App extends Component {
                 <thead>
                   <tr>
                     <th scope="col">Rank</th>
-                    <th scope="col">Avatar</th>
-                    <th scope="col">Name</th>
+                    <th scope="col" colSpan="2">
+                      Player
+                    </th>
+
                     <th scope="col">Tier icon</th>
                     <th scope="col">Tier</th>
                     <th scope="col">Points</th>

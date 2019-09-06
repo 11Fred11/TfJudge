@@ -12,10 +12,11 @@
 .container:hover .overlay {
   border-radius: 50%;
   display: block;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.53);
 }
 
 .bubble {
+  border: 1px solid #41b7a1;
   border-radius: 50%;
   position: absolute;
   width: 7vh;
@@ -30,7 +31,7 @@
   font-weight: 300;
   font-size: 90%;
   text-align: center;
-  color: #70f09b;
+  color: #5a6674;
   z-index: 1;
   transition: top 0.5s ease;
 }
@@ -53,9 +54,16 @@
 
 .container:hover .button {
   opacity: 1;
+  cursor: pointer;
 }
 .container {
   position: relative;
   width: 7vh;
   height: 7vh;
+}
+
+.binIcon {
+  width: 55%;
+  position: relative;
+  bottom: 3px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./PlayerBubble.css";
+import binIcon from "../images/delete-bin-50.png";
 
 const playerBubble = props => {
   return (
@@ -9,8 +10,10 @@ const playerBubble = props => {
       <div className="overlay"></div>
       <div className="button">
         <img
-          src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png"
+          className="binIcon"
+          src={binIcon}
           onClick={props.onDelete}
+          alt="Delete"
         />
       </div>
     </div>
