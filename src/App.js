@@ -116,8 +116,8 @@ class App extends Component {
         <div className="tftLogo">
           <img src={tftLogo} alt="TFT LOGO" />
           <p>
-            I don't know what to write here so use your imagination please,
-            thanks.
+            Compare your stats agains your friends or the ones playing with you
+            right now !
           </p>
         </div>
         <SearchBar searchPlayer={this.searchPlayer} />
