@@ -4,15 +4,7 @@
 *::after {
   box-sizing: border-box;
 }
-body {
-  height: 100vh;
-  margin: 0;
-  background: #dedede;
-  color: #5a6674;
-  font-size: 13px;
-  font-family: "Roboto", sans-serif;
-  overflow: hidden;
-}
+
 /*-------------------- App --------------------*/
 .search-form {
   position: relative;
@@ -23,7 +15,7 @@ body {
   border-radius: 40px;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   transform: translate(-50%, -50%);
-  background: #fff;
+  background: #424250a3;
   transition: all 0.3s ease;
 }
 .search-form.focus {
@@ -35,7 +27,7 @@ body {
   left: 38px;
   font-size: 14px;
   background: none;
-  color: #5a6674;
+  color: #fff;
   width: 195px;
   height: 20px;
   border: none;
@@ -61,7 +53,7 @@ body {
 .search-button svg {
   width: 20px;
   height: 20px;
-  fill: #5a6674;
+  fill: #fff;
 }
 .search-option {
   display: flex;
@@ -91,7 +83,7 @@ body {
   transform: translateX(-50%);
   opacity: 0;
   background: #929aa3;
-  color: #fff;
+  color: #121121;
   font-size: 9px;
   letter-spacing: 1px;
   line-height: 1;
@@ -123,7 +115,7 @@ body {
 .search-option div svg {
   height: 20px;
   width: 20px;
-  fill: #5a6674;
+  fill: #121121;
   opacity: 0.6;
   transition: all 0.2s ease-in-out;
   pointer-events: none;
@@ -132,12 +124,12 @@ body {
   opacity: 1;
 }
 .search-option div input:checked + label svg {
-  fill: #e24040;
+  fill: #41b7a1;
   opacity: 0.9;
 }
 .search-option div input:checked + label span {
-  background: #e24040;
+  background: #41b7a1;
 }
 .search-option div input:checked + label span::after {
-  border-top-color: #e24040;
+  border-top-color: #41b7a1;
 }

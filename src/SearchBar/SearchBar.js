@@ -30,8 +30,6 @@ const searchBar = props => {
           type="search"
           className="search-input"
           placeholder="Search"
-          onFocus={e => (e.target.placeholder = "")}
-          onBlur={e => (e.target.placeholder = "Search")}
           onChange={handleInputChange}
         />
         <button type="submit" className="search-button" onClick={handleSearch}>

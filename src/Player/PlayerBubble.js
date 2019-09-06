@@ -1,5 +1,5 @@
 import React from "react";
-import "./Player.css";
+import "./PlayerBubble.css";
 
 const playerBubble = props => {
   return (
@@ -8,7 +8,10 @@ const playerBubble = props => {
       <p className="title">{props.playerName}</p>
       <div className="overlay"></div>
       <div className="button">
-        <button onClick={props.onDelete}>DELETE</button>
+        <img
+          src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png"
+          onClick={props.onDelete}
+        />
       </div>
     </div>
   );

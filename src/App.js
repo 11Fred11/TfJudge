@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Player from "./Player/Player";
 import PlayerBubble from "./Player/PlayerBubble";
-import SearchBar from "./Global/SearchBar";
+import SearchBar from "./SearchBar/SearchBar";
 import "./App.css";
 
 //This is a custom ranking system for players required for the sort function
@@ -111,11 +111,11 @@ class App extends Component {
     // Sort the state with every new input
     this.state.players.sort(this.sortByRanks);
     return (
-      <div>
+      <div className="mainContainer">
         <SearchBar searchPlayer={this.searchPlayer} />
         {!this.state.loading && (
-          <div>
-            <div className="flex">
+          <div className="playersInfo">
+            <div className="bubbles">
               {this.state.players.map((player, i) => {
                 return (
                   <PlayerBubble
@@ -129,51 +129,58 @@ class App extends Component {
                 );
               })}
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">Rank</th>
-                  <th scope="col">Player Icon </th>
-                  <th scope="col">Player Name</th>
-                  <th scope="col">Tier icon</th>
-                  <th scope="col">Tier</th>
-                  <th scope="col">Points</th>
-                  <th scope="col">Win %</th>
-                  <th scope="col">Wins</th>
-                  <th scope="col">Losses</th>
-                  <th scope="col">Game Played</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.players.map((player, i) => {
-                  return (
-                    <Player
-                      id={player.data.platformInfo.platformUserId}
-                      rank={i}
-                      icon={player.data.platformInfo.avatarUrl}
-                      name={player.data.platformInfo.platformUserIdentifier}
-                      tierIcon={
-                        player.data.segments[0].stats.tier.metadata.imageUrl
-                      }
-                      tierValue={
-                        player.data.segments[0].stats.tier.displayValue
-                      }
-                      lp={
-                        player.data.segments[0].stats.leaguePoints.displayValue
-                      }
-                      winRate={
-                        player.data.segments[0].stats.wlPercentage.displayValue
-                      }
-                      wins={player.data.segments[0].stats.wins.displayValue}
-                      losses={player.data.segments[0].stats.losses.displayValue}
-                      gamePlayed={
-                        player.data.segments[0].stats.matchesPlayed.displayValue
-                      }
-                    />
-                  );
-                })}
-              </tbody>
-            </table>
+            <section className="playersTable">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Tier icon</th>
+                    <th scope="col">Tier</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Win %</th>
+                    <th scope="col">Wins</th>
+                    <th scope="col">Losses</th>
+                    <th scope="col">Game Played</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.players.map((player, i) => {
+                    return (
+                      <Player
+                        id={player.data.platformInfo.platformUserId}
+                        rank={i}
+                        icon={player.data.platformInfo.avatarUrl}
+                        name={player.data.platformInfo.platformUserIdentifier}
+                        tierIcon={
+                          player.data.segments[0].stats.tier.metadata.imageUrl
+                        }
+                        tierValue={
+                          player.data.segments[0].stats.tier.displayValue
+                        }
+                        lp={
+                          player.data.segments[0].stats.leaguePoints
+                            .displayValue
+                        }
+                        winRate={
+                          player.data.segments[0].stats.wlPercentage
+                            .displayValue
+                        }
+                        wins={player.data.segments[0].stats.wins.displayValue}
+                        losses={
+                          player.data.segments[0].stats.losses.displayValue
+                        }
+                        gamePlayed={
+                          player.data.segments[0].stats.matchesPlayed
+                            .displayValue
+                        }
+                      />
+                    );
+                  })}
+                </tbody>
+              </table>
+            </section>
           </div>
         )}
       </div>
