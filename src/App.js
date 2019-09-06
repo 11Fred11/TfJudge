@@ -36,35 +36,36 @@ const ranks = {
 
 class App extends Component {
   state = {
-    inputs: [
-      "fredjie",
-      "salipow",
-      "the carry rumble",
-      "twisted john",
-      "mart sidi",
-      "balha"
-    ],
+    playerInputs: [],
     loading: true,
     players: []
   };
 
+  //Update this.state with the searchBox input
   searchPlayer = player => {
-    alert("we got : " + player.name + " " + player.region);
+    if (player.name !== "" && player.region !== "") {
+      let currentPlayerInputs = [...this.state.playerInputs];
+      let currentPlayers = [...this.state.players];
+      currentPlayerInputs.push({ name: player.name, region: player.region });
+      this.setState(
+        {
+          playerInputs: currentPlayerInputs,
+          loading: true,
+          players: currentPlayers
+        },
+        () => {
+          this.fetchPlayerData(); // maybe this before setstate ?
+        }
+      );
+    }
   };
   handleDelete = index => {
-    let joined = [];
-    joined = [...this.state.players];
+    let joined = [...this.state.players];
     joined.splice(index, 1);
     const loading = !joined.length > 0;
+    let currentPlayerInputs = [...this.state.playerInputs];
     this.setState({
-      inputs: [
-        "fredjie",
-        "salipow",
-        "the carry rumble",
-        "twisted john",
-        "mart sidi",
-        "balha"
-      ],
+      playerInputs: currentPlayerInputs,
       loading: loading,
       players: joined
     });
@@ -82,31 +83,28 @@ class App extends Component {
   };
 
   //Fetch each player's stats when the component get mounted
-  componentDidMount() {
-    let joined = [];
-    // eslint-disable-next-line
-    this.state.inputs.map(name => {
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${name}?region=EUW`
-      )
-        .then(res => res.json())
-        .then(player => {
-          joined = [...this.state.players]; //using the new spread operator to clone the state
-          joined.push(player);
-          this.setState({
-            inputs: [
-              "fredjie",
-              "salipow",
-              "the carry rumble",
-              "twisted john",
-              "mart sidi"
-            ],
-            loading: false,
-            players: joined
-          });
-        })
-        .catch(console.log);
-    });
+  fetchPlayerData() {
+    if (this.state.playerInputs.length) {
+      let joined = [];
+      let currentPlayerInputs = [...this.state.playerInputs];
+      // eslint-disable-next-line
+      this.state.playerInputs.map(playerInput => {
+        fetch(
+          `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${playerInput.name}?region=${playerInput.region}`
+        )
+          .then(res => res.json())
+          .then(player => {
+            joined = [...this.state.players];
+            joined.push(player);
+            this.setState({
+              playerInputs: currentPlayerInputs,
+              loading: false,
+              players: joined
+            });
+          })
+          .catch(console.log);
+      });
+    }
   }
 
   render() {

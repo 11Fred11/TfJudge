@@ -4,16 +4,22 @@ import "./SearchBar.css";
 const searchBar = props => {
   let player = { name: "", region: "EUW" };
 
+  //Prevent Form submit handler
   function handleSubmit(e) {
     e.preventDefault();
   }
+
+  //Pass player values to the parent componenet handler
   function handleSearch(e) {
-    e.preventDefault();
     props.searchPlayer(player);
   }
+
+  //Handle input change and update the local player.name variable
   function handleInputChange(e) {
     player.name = e.target.value;
   }
+
+  //Handle Radio button change and update the local player.region variable
   function handleRegionChange(e) {
     player.region = e.target.value;
   }
