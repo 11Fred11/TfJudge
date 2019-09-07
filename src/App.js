@@ -34,10 +34,9 @@ const ranks = {
   MASTER: 3000,
   CHALLENGER: 5000
 };
-
+let playerNames = [];
 class App extends Component {
   state = {
-    playerInputs: [],
     loading: true,
     players: []
   };
@@ -45,28 +44,16 @@ class App extends Component {
   //Update this.state with the searchBox input
   searchPlayer = player => {
     if (player.name !== "" && player.region !== "") {
-      let currentPlayerInputs = [...this.state.playerInputs];
-      let currentPlayers = [...this.state.players];
-      currentPlayerInputs.push({ name: player.name, region: player.region });
-      this.setState(
-        {
-          playerInputs: currentPlayerInputs,
-          loading: true,
-          players: currentPlayers
-        },
-        () => {
-          this.fetchPlayerData(); // maybe this before setstate ?
-        }
-      );
+      playerNames.push(player);
+      this.fetchPlayerData(player);
     }
   };
   handleDelete = index => {
     let joined = [...this.state.players];
     joined.splice(index, 1);
     const loading = !joined.length > 0;
-    let currentPlayerInputs = [...this.state.playerInputs];
+    playerNames.splice(index, 1);
     this.setState({
-      playerInputs: currentPlayerInputs,
       loading: loading,
       players: joined
     });
@@ -84,28 +71,22 @@ class App extends Component {
   };
 
   //Fetch each player's stats when the component get mounted
-  fetchPlayerData() {
-    if (this.state.playerInputs.length) {
-      let joined = [];
-      let currentPlayerInputs = [...this.state.playerInputs];
-      // eslint-disable-next-line
-      this.state.playerInputs.map(playerInput => {
-        fetch(
-          `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${playerInput.name}?region=${playerInput.region}`
-        )
-          .then(res => res.json())
-          .then(player => {
-            joined = [...this.state.players];
-            joined.push(player);
-            this.setState({
-              playerInputs: currentPlayerInputs,
-              loading: false,
-              players: joined
-            });
-          })
-          .catch(console.log);
-      });
-    }
+  fetchPlayerData(player) {
+    let joined = [];
+    // eslint-disable-next-line
+    fetch(
+      `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${player.name}?region=${player.region}`
+    )
+      .then(res => res.json())
+      .then(player => {
+        joined = [...this.state.players];
+        joined.push(player);
+        this.setState({
+          loading: false,
+          players: joined
+        });
+      })
+      .catch(console.log);
   }
 
   render() {
@@ -127,7 +108,7 @@ class App extends Component {
               {this.state.players.map((player, i) => {
                 return (
                   <PlayerBubble
-                    id={player.data.platformInfo.platformUserId}
+                    key={player.data.platformInfo.platformUserId}
                     playerIcon={player.data.platformInfo.avatarUrl}
                     playerName={player.data.platformInfo.platformUserIdentifier}
                     onDelete={() => {
@@ -159,7 +140,7 @@ class App extends Component {
                   {this.state.players.map((player, i) => {
                     return (
                       <Player
-                        id={player.data.platformInfo.platformUserId}
+                        key={player.data.platformInfo.platformUserId}
                         rank={i}
                         icon={player.data.platformInfo.avatarUrl}
                         name={player.data.platformInfo.platformUserIdentifier}
