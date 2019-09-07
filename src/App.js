@@ -33,38 +33,25 @@ const ranks = {
   MASTER: 3000,
   CHALLENGER: 5000
 };
-
+let playerNames = [];
 class App extends Component {
   state = {
-    inputs: [
-      "fredjie",
-      "salipow",
-      "the carry rumble",
-      "twisted john",
-      "mart sidi",
-      "balha"
-    ],
     loading: true,
     players: []
   };
 
   searchPlayer = player => {
-    alert("we got : " + player.name + " " + player.region);
+    playerNames.push(player.name);
+    this.fetchData(player.name);
   };
   handleDelete = index => {
     let joined = [];
     joined = [...this.state.players];
     joined.splice(index, 1);
     const loading = !joined.length > 0;
+    let currentInputs = [...this.state.inputs];
     this.setState({
-      inputs: [
-        "fredjie",
-        "salipow",
-        "the carry rumble",
-        "twisted john",
-        "mart sidi",
-        "balha"
-      ],
+      inputs: currentInputs,
       loading: loading,
       players: joined
     });
@@ -82,31 +69,22 @@ class App extends Component {
   };
 
   //Fetch each player's stats when the component get mounted
-  componentDidMount() {
+  fetchData(name) {
     let joined = [];
     // eslint-disable-next-line
-    this.state.inputs.map(name => {
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${name}?region=EUW`
-      )
-        .then(res => res.json())
-        .then(player => {
-          joined = [...this.state.players]; //using the new spread operator to clone the state
-          joined.push(player);
-          this.setState({
-            inputs: [
-              "fredjie",
-              "salipow",
-              "the carry rumble",
-              "twisted john",
-              "mart sidi"
-            ],
-            loading: false,
-            players: joined
-          });
-        })
-        .catch(console.log);
-    });
+    fetch(
+      `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${name}?region=EUW`
+    )
+      .then(res => res.json())
+      .then(player => {
+        joined = [...this.state.players]; //using the new spread operator to clone the state
+        joined.push(player);
+        this.setState({
+          loading: false,
+          players: joined
+        });
+      })
+      .catch(console.log);
   }
 
   render() {
