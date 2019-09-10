@@ -6,11 +6,19 @@ body {
   font-size: 13px;
   font-family: "Roboto", sans-serif;
   background-color: #121121;
+  background-image: url("images/Background-splash.jpg");
+  background-size: cover;
 }
-.tftLogo img {
-  width: 70%;
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 20pt;
+  color: #ececec;
 }
 .tftLogo {
+  width: 7%;
+}
+/* .tftLogo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +26,7 @@ body {
   justify-content: space-evenly;
   margin: 30vh 0 0 0;
 }
-
+ */
 .mainContainer {
   height: 100vh;
   display: flex;
@@ -27,6 +35,7 @@ body {
   align-items: center;
 }
 table {
+  border-collapse: collapse;
   border-spacing: 10px;
   text-align: center;
 }
@@ -51,7 +60,7 @@ tbody tr:first-child td {
 }
 .bubbles {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 5vh 0 5vh 0;
   width: 40vw;
 }

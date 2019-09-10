@@ -9,14 +9,14 @@
   transition: background 0.5s ease;
 }
 
-.container:hover .overlay {
+.bubbleContainer:hover .overlay {
   border-radius: 50%;
   display: block;
   background: rgba(0, 0, 0, 0.53);
 }
 
 .bubble {
-  border: 1px solid #41b7a1;
+  border: 2px solid #41b7a1;
   border-radius: 50%;
   position: absolute;
   width: 7vh;
@@ -52,14 +52,15 @@
   z-index: 1;
 }
 
-.container:hover .button {
+.bubbleContainer:hover .button {
   opacity: 1;
   cursor: pointer;
 }
-.container {
+.bubbleContainer {
   position: relative;
   width: 7vh;
   height: 7vh;
+  margin: 1vw;
 }
 
 .binIcon {

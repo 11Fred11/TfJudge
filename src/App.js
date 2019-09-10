@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Player from "./Player/Player";
 import PlayerBubble from "./Player/PlayerBubble";
 import SearchBar from "./SearchBar/SearchBar";
-import tftLogo from "./images/Teamfight_Tactics_Logo.png";
+import tftLogo from "./images/TFT-logo.svg";
 import "./App.css";
+import { Snackbar } from "./SnackBar/SnackBar";
 
 //This is a custom ranking system for players required for the sort function
 const ranks = {
@@ -34,27 +35,30 @@ const ranks = {
   MASTER: 3000,
   CHALLENGER: 5000
 };
-let playerNames = [];
+
 class App extends Component {
   state = {
-    loading: true,
+    empty: true,
     players: []
   };
+  playerNames = [];
+  //Reference to the error snackbar componenet
+  snackBarRef = React.createRef();
 
   //Update this.state with the searchBox input
   searchPlayer = player => {
     if (player.name !== "" && player.region !== "") {
-      playerNames.push(player);
+      this.playerNames.push(player);
       this.fetchPlayerData(player);
     }
   };
   handleDelete = index => {
     let joined = [...this.state.players];
     joined.splice(index, 1);
-    const loading = !joined.length > 0;
-    playerNames.splice(index, 1);
+    const empty = !joined.length > 0;
+    this.playerNames.splice(index, 1);
     this.setState({
-      loading: loading,
+      empty: empty,
       players: joined
     });
   };
@@ -79,12 +83,16 @@ class App extends Component {
     )
       .then(res => res.json())
       .then(player => {
-        joined = [...this.state.players];
-        joined.push(player);
-        this.setState({
-          loading: false,
-          players: joined
-        });
+        if (!player.errors) {
+          joined = [...this.state.players];
+          joined.push(player);
+          this.setState({
+            empty: false,
+            players: joined
+          });
+        } else {
+          this.snackBarRef.current.openSnackBar(player.errors[0].message);
+        }
       })
       .catch(console.log);
   }
@@ -94,15 +102,11 @@ class App extends Component {
     this.state.players.sort(this.sortByRanks);
     return (
       <div className="mainContainer">
-        <div className="tftLogo">
-          <img src={tftLogo} alt="TFT LOGO" />
-          <p>
-            Compare your stats agains your friends or the ones playing with you
-            right now !
-          </p>
-        </div>
+        <img src={tftLogo} alt="TFT LOGO" className="tftLogo" />
+        <h1>COMPARE YOUR TFT STATS</h1>
         <SearchBar searchPlayer={this.searchPlayer} />
-        {!this.state.loading && (
+        <Snackbar ref={this.snackBarRef} />
+        {!this.state.empty && (
           <div className="playersInfo">
             <div className="bubbles">
               {this.state.players.map((player, i) => {

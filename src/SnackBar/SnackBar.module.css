@@ -1,0 +1,100 @@
+.snackbar {
+  display: flex;
+  visibility: hidden;
+  width: 25%;
+  height: 9%;
+  background-color: #ff5859;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 1%;
+  position: fixed;
+  z-index: 1;
+  left: 37%;
+  bottom: 2%;
+  font-size: 1rem;
+}
+
+svg {
+  padding-left: 3%;
+  flex-basis: 15%;
+  fill: #202b43;
+}
+.message {
+  padding-left: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.msgtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 0.65em;
+  color: #202b43;
+  margin: 0% 0% 2% 0%;
+}
+.msgBody {
+  font-family: roboto, sans-serif;
+  font-weight: 200;
+  font-size: 0.41em;
+  color: #fff;
+  margin-right: 25%;
+  margin: 2% 0% 0% 0%;
+}
+html {
+  font-size: calc(1em + 1vw);
+}
+
+.snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+   However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.3s, fadeout 0.3s 4.5s;
+  animation: fadein 0.3s, fadeout 0.3s 4.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

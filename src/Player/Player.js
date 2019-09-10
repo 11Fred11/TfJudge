@@ -3,7 +3,7 @@ import "./Player.css";
 
 const player = props => {
   return (
-    <tr key={props.key}>
+    <tr>
       <td>{props.rank + 1}</td>
       <td>
         <img src={props.icon} alt="Player icon" className="profileIcon" />
