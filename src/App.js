@@ -4,7 +4,9 @@ import PlayerBubble from "./Player/PlayerBubble";
 import SearchBar from "./SearchBar/SearchBar";
 import tftLogo from "./images/TFT-logo.svg";
 import "./App.css";
-import { Snackbar } from "./SnackBar/SnackBar";
+import { ErrorSnackbar } from "./SnackBar/ErrorSnackBar";
+import { PlayerExistsSnackBar } from "./SnackBar/PlayerExistsSnackBar";
+import player from "./Player/Player";
 
 //This is a custom ranking system for players required for the sort function
 const ranks = {
@@ -37,30 +39,61 @@ const ranks = {
 };
 
 class App extends Component {
+  //General State
   state = {
+    full: false,
     empty: true,
     players: []
   };
+
+  //Players names entred through the search bar
   playerNames = [];
+
   //Reference to the error snackbar componenet
-  snackBarRef = React.createRef();
+  errSnackBarRef = React.createRef();
+
+  //Reference to the player exists snackbar componenet
+  plyerExSnackBarRef = React.createRef();
+
+  //Does a player already exists in the Table.
+  playerExist = player => {
+    return this.playerNames.find(item => item.name === player.name);
+  };
 
   //Update this.state with the searchBox input
   searchPlayer = player => {
     if (player.name !== "" && player.region !== "") {
-      this.playerNames.push(player);
-      this.fetchPlayerData(player);
+      if (this.playerExist(player)) {
+        this.plyerExSnackBarRef.current.openSnackBar(player.name);
+      } else if (this.playerNames.length === 3) {
+        let joined = [...this.state.players];
+        this.setState({
+          full: true,
+          empty: false,
+          players: joined
+        });
+      } else {
+        this.playerNames.push(player);
+        this.fetchPlayerData(player);
+      }
     }
   };
+
+  //Delete player handler
   handleDelete = index => {
-    let joined = [...this.state.players];
-    joined.splice(index, 1);
-    const empty = !joined.length > 0;
     this.playerNames.splice(index, 1);
+    let joined = [...this.state.players];
+    this.joined.splice(index, 1);
+    let empt = this.playerNames.length === 0;
+    console.log("length : ", joined.length);
+    let nb = this.playerNames.length >= 3;
+
     this.setState({
-      empty: empty,
+      full: nb,
+      empty: empt,
       players: joined
     });
+    console.log("after : ", this.state.full);
   };
   //Sort players by their ranks
   sortByRanks = (playerOne, playerTwo) => {
@@ -87,11 +120,19 @@ class App extends Component {
           joined = [...this.state.players];
           joined.push(player);
           this.setState({
+            full: false, // make sure this is correct !
             empty: false,
             players: joined
           });
         } else {
-          this.snackBarRef.current.openSnackBar(player.errors[0].message);
+          console.log("error : player not found");
+
+          //Find the index of this player and delete it from the list of inputs;
+          let index = this.playerNames.findIndex(
+            item => item.name === player.name
+          );
+          this.playerNames.splice(index, 1);
+          this.errSnackBarRef.current.openSnackBar(player.errors[0].message);
         }
       })
       .catch(console.log);
@@ -104,8 +145,12 @@ class App extends Component {
       <div className="mainContainer">
         <img src={tftLogo} alt="TFT LOGO" className="tftLogo" />
         <h1>COMPARE YOUR TFT STATS</h1>
-        <SearchBar searchPlayer={this.searchPlayer} />
-        <Snackbar ref={this.snackBarRef} />
+        <SearchBar
+          searchPlayer={this.searchPlayer}
+          disabled={this.state.full}
+        />
+        <ErrorSnackbar ref={this.errSnackBarRef} />
+        <PlayerExistsSnackBar ref={this.plyerExSnackBarRef} />
         {!this.state.empty && (
           <div className="playersInfo">
             <div className="bubbles">

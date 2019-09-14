@@ -1,4 +1,4 @@
-.snackbar {
+.errorSnackbar {
   display: flex;
   visibility: hidden;
   width: 25%;
@@ -15,13 +15,23 @@
   font-size: 1rem;
 }
 
-svg {
-  padding-left: 3%;
+.closeButton {
+  width: 3%;
+  position: absolute;
+  top: 8%;
+  left: 95%;
+}
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.errorIcon {
+  padding-right: 5%;
+  padding-left: 1%;
   flex-basis: 15%;
-  fill: #202b43;
+  width: 17%;
 }
 .message {
-  padding-left: 7%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,22 +56,19 @@ html {
   font-size: calc(1em + 1vw);
 }
 
-.snackbar.show {
-  visibility: visible; /* Show the snackbar */
-  /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
-   However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.3s, fadeout 0.3s 4.5s;
-  animation: fadein 0.3s, fadeout 0.3s 4.5s;
+.errorSnackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.3s;
+  animation: fadein 0.3s;
 }
 
-/* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {
     bottom: 0;
     opacity: 0;
   }
   to {
-    bottom: 30px;
+    bottom: 2%;
     opacity: 1;
   }
 }
@@ -72,29 +79,7 @@ html {
     opacity: 0;
   }
   to {
-    bottom: 30px;
+    bottom: 2%;
     opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    bottom: 30px;
-    opacity: 1;
-  }
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    bottom: 30px;
-    opacity: 1;
-  }
-  to {
-    bottom: 0;
-    opacity: 0;
   }
 }

@@ -2,7 +2,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 /*-------------------- App --------------------*/
@@ -132,4 +132,7 @@
 }
 .search-option div input:checked + label span::after {
   border-top-color: #41b7a1;
+}
+fieldset {
+  all: unset;
 }
