@@ -65,7 +65,7 @@ class App extends Component {
     if (player.name !== "" && player.region !== "") {
       if (this.playerExist(player)) {
         this.plyerExSnackBarRef.current.openSnackBar(player.name);
-      } else if (this.playerNames.length === 3) {
+      } else if (this.playerNames.length === 8) {
         let joined = [...this.state.players];
         this.setState({
           full: true,
@@ -83,10 +83,10 @@ class App extends Component {
   handleDelete = index => {
     this.playerNames.splice(index, 1);
     let joined = [...this.state.players];
-    this.joined.splice(index, 1);
+    joined.splice(index, 1);
     let empt = this.playerNames.length === 0;
     console.log("length : ", joined.length);
-    let nb = this.playerNames.length >= 3;
+    let nb = this.playerNames.length >= 8;
 
     this.setState({
       full: nb,
