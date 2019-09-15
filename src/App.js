@@ -6,7 +6,6 @@ import tftLogo from "./images/TFT-logo.svg";
 import "./App.css";
 import { ErrorSnackbar } from "./SnackBar/ErrorSnackBar";
 import { PlayerExistsSnackBar } from "./SnackBar/PlayerExistsSnackBar";
-import player from "./Player/Player";
 
 //This is a custom ranking system for players required for the sort function
 const ranks = {
@@ -63,15 +62,15 @@ class App extends Component {
   //Update this.state with the searchBox input
   searchPlayer = player => {
     if (player.name !== "" && player.region !== "") {
-      if (this.playerExist(player)) {
-        this.plyerExSnackBarRef.current.openSnackBar(player.name);
-      } else if (this.playerNames.length === 8) {
+      if (this.playerNames.length === 8) {
         let joined = [...this.state.players];
         this.setState({
           full: true,
           empty: false,
           players: joined
         });
+      } else if (this.playerExist(player)) {
+        this.plyerExSnackBarRef.current.openSnackBar(player.name);
       } else {
         this.playerNames.push(player);
         this.fetchPlayerData(player);
@@ -85,7 +84,6 @@ class App extends Component {
     let joined = [...this.state.players];
     joined.splice(index, 1);
     let empt = this.playerNames.length === 0;
-    console.log("length : ", joined.length);
     let nb = this.playerNames.length >= 8;
 
     this.setState({
@@ -93,7 +91,6 @@ class App extends Component {
       empty: empt,
       players: joined
     });
-    console.log("after : ", this.state.full);
   };
   //Sort players by their ranks
   sortByRanks = (playerOne, playerTwo) => {
@@ -124,6 +121,11 @@ class App extends Component {
             empty: false,
             players: joined
           });
+          /* window.scrollTo({
+            top: 200,
+            left: 0,
+            behavior: "smooth"
+          }); */
         } else {
           console.log("error : player not found");
 
@@ -143,12 +145,11 @@ class App extends Component {
     this.state.players.sort(this.sortByRanks);
     return (
       <div className="mainContainer">
-        <img src={tftLogo} alt="TFT LOGO" className="tftLogo" />
-        <h1>COMPARE YOUR TFT STATS</h1>
-        <SearchBar
-          searchPlayer={this.searchPlayer}
-          disabled={this.state.full}
-        />
+        <div className="topSection">
+          <img src={tftLogo} alt="TFT LOGO" className="tftLogo" />
+          <h1>COMPARE YOUR TFT STATS</h1>
+        </div>
+        <SearchBar searchPlayer={this.searchPlayer} />
         <ErrorSnackbar ref={this.errSnackBarRef} />
         <PlayerExistsSnackBar ref={this.plyerExSnackBarRef} />
         {!this.state.empty && (
