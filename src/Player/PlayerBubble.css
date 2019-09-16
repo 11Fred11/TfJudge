@@ -16,7 +16,7 @@
 }
 
 .bubble {
-  border: 2px solid #41b7a1;
+  border: 3px solid #41b7a1;
   border-radius: 50%;
   position: absolute;
   width: 7vh;
@@ -26,14 +26,12 @@
 
 .title {
   position: absolute;
-  left: 0.5vw;
+  left: 1.1vw;
   top: 8vh;
   font-weight: 300;
   font-size: 90%;
   text-align: center;
   color: #5a6674;
-  z-index: 1;
-  transition: top 0.5s ease;
 }
 
 .button {

@@ -6,6 +6,8 @@ import tftLogo from "./images/TFT-logo.svg";
 import "./App.css";
 import { ErrorSnackbar } from "./SnackBar/ErrorSnackBar";
 import { PlayerExistsSnackBar } from "./SnackBar/PlayerExistsSnackBar";
+import { Footer } from "./Global/Footer";
+import { Header } from "./Global/Header";
 
 //This is a custom ranking system for players required for the sort function
 const ranks = {
@@ -40,7 +42,6 @@ const ranks = {
 class App extends Component {
   //General State
   state = {
-    full: false,
     empty: true,
     players: []
   };
@@ -56,7 +57,9 @@ class App extends Component {
 
   //Does a player already exists in the Table.
   playerExist = player => {
-    return this.playerNames.find(item => item.name === player.name);
+    return this.playerNames.find(
+      item => item.name === player.name && item.region === player.region
+    );
   };
 
   //Update this.state with the searchBox input
@@ -65,7 +68,6 @@ class App extends Component {
       if (this.playerNames.length === 8) {
         let joined = [...this.state.players];
         this.setState({
-          full: true,
           empty: false,
           players: joined
         });
@@ -84,10 +86,8 @@ class App extends Component {
     let joined = [...this.state.players];
     joined.splice(index, 1);
     let empt = this.playerNames.length === 0;
-    let nb = this.playerNames.length >= 8;
 
     this.setState({
-      full: nb,
       empty: empt,
       players: joined
     });
@@ -117,7 +117,6 @@ class App extends Component {
           joined = [...this.state.players];
           joined.push(player);
           this.setState({
-            full: false, // make sure this is correct !
             empty: false,
             players: joined
           });
@@ -145,6 +144,7 @@ class App extends Component {
     this.state.players.sort(this.sortByRanks);
     return (
       <div className="mainContainer">
+        <Header></Header>
         <div className="topSection">
           <img src={tftLogo} alt="TFT LOGO" className="tftLogo" />
           <h1>COMPARE YOUR TFT STATS</h1>
@@ -224,6 +224,7 @@ class App extends Component {
             </section>
           </div>
         )}
+        <Footer></Footer>
       </div>
     );
   }
