@@ -3,6 +3,7 @@ import Player from "./Player/Player";
 import PlayerBubble from "./Player/PlayerBubble";
 import SearchBar from "./SearchBar/SearchBar";
 import tftLogo from "./images/TFT-logo.svg";
+import tftLogoLoading from "./images/TFT-logo-loading.svg";
 import "./App.css";
 import { ErrorSnackbar } from "./SnackBar/ErrorSnackBar";
 import { PlayerExistsSnackBar } from "./SnackBar/PlayerExistsSnackBar";
@@ -42,6 +43,7 @@ const ranks = {
 class App extends Component {
   //General State
   state = {
+    loading: false,
     empty: true,
     players: []
   };
@@ -68,6 +70,7 @@ class App extends Component {
       if (this.playerNames.length === 8) {
         let joined = [...this.state.players];
         this.setState({
+          loading: false,
           empty: false,
           players: joined
         });
@@ -88,6 +91,7 @@ class App extends Component {
     let empt = this.playerNames.length === 0;
 
     this.setState({
+      loading: false,
       empty: empt,
       players: joined
     });
@@ -107,6 +111,12 @@ class App extends Component {
   //Fetch each player's stats when the component get mounted
   fetchPlayerData(player) {
     let joined = [];
+    joined = [...this.state.players];
+    this.setState({
+      loading: true,
+      empty: false,
+      players: joined
+    });
     // eslint-disable-next-line
     fetch(
       `https://cors-anywhere.herokuapp.com/https://api.tracker.gg/api/v2/tft/standard/profile/riot/${player.name}?region=${player.region}`
@@ -117,6 +127,7 @@ class App extends Component {
           joined = [...this.state.players];
           joined.push(player);
           this.setState({
+            loading: false,
             empty: false,
             players: joined
           });
@@ -134,6 +145,12 @@ class App extends Component {
           );
           this.playerNames.splice(index, 1);
           this.errSnackBarRef.current.openSnackBar(player.errors[0].message);
+          joined = [...this.state.players];
+          this.setState({
+            loading: false,
+            empty: false,
+            players: joined
+          });
         }
       })
       .catch(console.log);
@@ -146,7 +163,11 @@ class App extends Component {
       <div className="mainContainer">
         <Header></Header>
         <div className="topSection">
-          <img src={tftLogo} alt="TFT LOGO" className="tftLogo" />
+          <img
+            src={this.state.loading ? tftLogoLoading : tftLogo}
+            alt="TFT LOGO"
+            className="tftLogo"
+          />
           <h1>COMPARE YOUR TFT STATS</h1>
         </div>
         <SearchBar searchPlayer={this.searchPlayer} />
