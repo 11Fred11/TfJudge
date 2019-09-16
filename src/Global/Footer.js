@@ -5,7 +5,7 @@ export class Footer extends Component {
   render() {
     return (
       <footer>
-        Made with love and passion by Fred |{"  "}
+        Made with love by Fred |{"  "}
         <time>{this.dt.getFullYear()}</time>
       </footer>
     );

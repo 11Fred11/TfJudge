@@ -6,7 +6,6 @@ import tftLogo from "./images/TFT-logo.svg";
 import tftLogoLoading from "./images/TFT-logo-loading.svg";
 import "./App.css";
 import { ErrorSnackbar } from "./SnackBar/ErrorSnackBar";
-import { PlayerExistsSnackBar } from "./SnackBar/PlayerExistsSnackBar";
 import { Footer } from "./Global/Footer";
 import { Header } from "./Global/Header";
 
@@ -54,9 +53,6 @@ class App extends Component {
   //Reference to the error snackbar componenet
   errSnackBarRef = React.createRef();
 
-  //Reference to the player exists snackbar componenet
-  plyerExSnackBarRef = React.createRef();
-
   //Does a player already exists in the Table.
   playerExist = player => {
     return this.playerNames.find(
@@ -68,14 +64,15 @@ class App extends Component {
   searchPlayer = player => {
     if (player.name !== "" && player.region !== "") {
       if (this.playerNames.length === 8) {
-        let joined = [...this.state.players];
-        this.setState({
-          loading: false,
-          empty: false,
-          players: joined
-        });
+        this.errSnackBarRef.current.openSnackBar(
+          "You can only track 8 players at the moment.",
+          "MAXIMUM PLAYER COUNT REACHED !"
+        );
       } else if (this.playerExist(player)) {
-        this.plyerExSnackBarRef.current.openSnackBar(player.name);
+        this.errSnackBarRef.current.openSnackBar(
+          `You are already tracking ${player.name}.`,
+          "PLAYER EXISTS !"
+        );
       } else {
         this.playerNames.push(player);
         this.fetchPlayerData(player);
@@ -144,7 +141,10 @@ class App extends Component {
             item => item.name === player.name
           );
           this.playerNames.splice(index, 1);
-          this.errSnackBarRef.current.openSnackBar(player.errors[0].message);
+          this.errSnackBarRef.current.openSnackBar(
+            player.errors[0].message,
+            "OOPS, PLAYER NOT FOUND !"
+          );
           joined = [...this.state.players];
           this.setState({
             loading: false,
@@ -172,7 +172,6 @@ class App extends Component {
         </div>
         <SearchBar searchPlayer={this.searchPlayer} />
         <ErrorSnackbar ref={this.errSnackBarRef} />
-        <PlayerExistsSnackBar ref={this.plyerExSnackBarRef} />
         {!this.state.empty && (
           <div className="playersInfo">
             <div className="bubbles">
