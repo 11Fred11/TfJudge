@@ -108,10 +108,11 @@ class App extends Component {
   //Fetch each player's stats when the component get mounted
   fetchPlayerData(player) {
     let joined = [];
+    let empty = this.state.empty;
     joined = [...this.state.players];
     this.setState({
       loading: true,
-      empty: false,
+      empty: empty,
       players: joined
     });
     // eslint-disable-next-line
@@ -145,10 +146,11 @@ class App extends Component {
             player.errors[0].message,
             "OOPS, PLAYER NOT FOUND !"
           );
+          let empty = this.state.empty;
           joined = [...this.state.players];
           this.setState({
             loading: false,
-            empty: false,
+            empty: empty,
             players: joined
           });
         }
