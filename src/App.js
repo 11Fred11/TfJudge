@@ -143,8 +143,8 @@ class App extends Component {
           );
           this.playerNames.splice(index, 1);
           this.errSnackBarRef.current.openSnackBar(
-            player.errors[0].message,
-            "OOPS, PLAYER NOT FOUND !"
+            "Make sure you have played your placement matches!",
+            "PLAYER NOT FOUND !"
           );
           let empty = this.state.empty;
           joined = [...this.state.players];

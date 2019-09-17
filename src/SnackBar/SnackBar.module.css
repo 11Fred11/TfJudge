@@ -1,8 +1,7 @@
 .errorSnackbar {
   display: flex;
   visibility: hidden;
-  width: 25%;
-  height: 10%;
+  width: 400px;
   background-color: #ff5859;
   color: #fff;
   text-align: center;
@@ -10,9 +9,8 @@
   padding: 10px;
   position: fixed;
   z-index: 1;
-  left: 37%;
   bottom: 2%;
-  font-size: 1rem;
+  font-size: 2.6em;
 }
 
 .closeButton {
@@ -81,5 +79,22 @@ html {
   to {
     bottom: 2%;
     opacity: 1;
+  }
+}
+
+@media only screen and (max-device-width: 850px) and (-webkit-max-device-pixel-ratio: 2) {
+  .errorSnackbar {
+    display: flex;
+    visibility: hidden;
+    width: 90%;
+    background-color: #ff5859;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    bottom: 2%;
+    font-size: 2.6em;
   }
 }

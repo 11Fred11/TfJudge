@@ -7,13 +7,15 @@ export class Header extends Component {
       <header>
         <img src={tfJudgeLogo} alt="TFJudhe logo"></img>
         <nav>
-          <a href="https://github.com/10Fred10">
+          <a href="https://github.com/10Fred10" target="blanc">
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
               x="0px"
               y="0px"
+              width="40"
+              height="40"
               viewBox="0 0 75 75"
               style={{ enableBackground: "new 0 0 75 75" }}
               xmlSpace="preserve"
@@ -34,7 +36,7 @@ export class Header extends Component {
               </g>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/in/fredhm/">
+          <a href="https://www.linkedin.com/in/fredhm/" target="blanc">
             <svg
               version="1.1"
               id="Layer_1"
@@ -42,6 +44,8 @@ export class Header extends Component {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               x="0px"
               y="0px"
+              width="40"
+              height="40"
               viewBox="0 0 75 75"
               style={{ enableBackground: "new 0 0 75 75" }}
               xmlSpace="preserve"
