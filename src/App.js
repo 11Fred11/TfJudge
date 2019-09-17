@@ -129,11 +129,6 @@ class App extends Component {
             empty: false,
             players: joined
           });
-          /* window.scrollTo({
-            top: 200,
-            left: 0,
-            behavior: "smooth"
-          }); */
         } else {
           console.log("error : player not found");
 

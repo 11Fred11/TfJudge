@@ -12,6 +12,7 @@ body {
   background-color: #121121;
   background-image: url("images/Background-splash.jpg");
   background-size: cover;
+  background-position: center center;
 }
 h1 {
   font-family: "Montserrat", sans-serif;
@@ -20,7 +21,7 @@ h1 {
   color: #ececec;
 }
 .tftLogo {
-  width: 30%;
+  width: 130px;
 }
 
 .mainContainer {
@@ -33,32 +34,9 @@ h1 {
 }
 .topSection {
   text-align: center;
-  margin-top: 10%;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 10px;
-  text-align: center;
-}
-td {
-  padding-right: 1.5vw;
-  padding-bottom: 1.5vh;
-  padding-top: 1.5vh;
-  padding-left: 1.5vw;
-}
-.thead {
-  text-align: center;
-  padding: 1.5vw;
+  /*margin-top: calc(7em + 7vw);*/
 }
 
-tbody tr:nth-child(odd) {
-  background-color: #121121;
-  color: #7986a3;
-}
-tbody tr:first-child td {
-  background-color: #41b7a1;
-  color: #182338;
-}
 .bubbles {
   display: flex;
   justify-content: center;
@@ -77,16 +55,11 @@ tbody tr:first-child td {
   border-radius: 5px;
   margin: 0 0 10% 0;
 }
-tbody:before {
-  content: "@";
-  display: block;
-  line-height: 10px;
-  text-indent: -99999px;
-}
+
 footer {
   position: absolute;
   bottom: 0;
-  height: 1rem;
+  height: 30px;
 }
 
 header {
@@ -115,4 +88,15 @@ nav {
 
 .socialIcon:hover > path {
   fill: #fff;
+}
+
+@media only screen and (max-device-width: 850px) {
+  h1 {
+    font-size: 16pt;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .topSection {
+    width: 70vw;
+  }
 }

@@ -14,13 +14,11 @@ export class ErrorSnackbar extends Component {
   openSnackBar = (message, title) => {
     this.message = message;
     this.title = title;
-    this.setState({ isActive: true });
-
-    /* this.setState({ isActive: true }, () => {
+    this.setState({ isActive: true }, () => {
       setTimeout(() => {
         this.setState({ isActive: false });
       }, 3000);
-    }); */
+    });
   };
   closeSnackBar = () => {
     this.setState({ isActive: false });

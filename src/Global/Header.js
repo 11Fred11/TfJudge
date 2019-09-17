@@ -14,8 +14,8 @@ export class Header extends Component {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               x="0px"
               y="0px"
-              width="40"
-              height="40"
+              width="35"
+              height="35"
               viewBox="0 0 75 75"
               style={{ enableBackground: "new 0 0 75 75" }}
               xmlSpace="preserve"
@@ -44,8 +44,8 @@ export class Header extends Component {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               x="0px"
               y="0px"
-              width="40"
-              height="40"
+              width="35"
+              height="35"
               viewBox="0 0 75 75"
               style={{ enableBackground: "new 0 0 75 75" }}
               xmlSpace="preserve"
