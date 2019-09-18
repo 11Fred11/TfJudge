@@ -1,0 +1,20 @@
+.topSection {
+  text-align: center;
+  margin-top: calc(6em + 6vw);
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 20pt;
+  color: #ececec;
+}
+@media only screen and (max-device-width: 850px) {
+  h1 {
+    font-size: 16pt;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .topSection {
+    width: 70vw;
+  }
+}

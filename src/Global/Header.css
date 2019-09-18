@@ -1,0 +1,31 @@
+header {
+  position: absolute;
+  top: 40px;
+  justify-content: space-between;
+  align-items: center;
+  width: 95vw;
+  display: flex;
+}
+
+.tftLogo {
+  width: 130px;
+}
+
+header > nav > a > svg {
+  margin: 0 3% 0 3%;
+}
+header > img {
+  width: 150px;
+}
+
+nav {
+  display: flex;
+}
+
+.socialIcon > path {
+  fill: #41b7a1;
+}
+
+.socialIcon:hover > path {
+  fill: #fff;
+}

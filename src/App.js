@@ -1,43 +1,16 @@
 import React, { Component } from "react";
-import Player from "./Player/Player";
-import PlayerBubble from "./Player/PlayerBubble";
+//COMPONENETS
+import { Header } from "./Global/Header";
+import TopSection from "./Global/TopSection";
 import SearchBar from "./SearchBar/SearchBar";
-import tftLogo from "./images/TFT-logo.svg";
-import tftLogoLoading from "./images/TFT-logo-loading.svg";
-import "./App.css";
+import PlayerBubbles from "./Bubbles/PlayerBubbles";
+import Table from "./Table/Table";
 import { ErrorSnackbar } from "./SnackBar/ErrorSnackBar";
 import { Footer } from "./Global/Footer";
-import { Header } from "./Global/Header";
 
-//This is a custom ranking system for players required for the sort function
-const ranks = {
-  "IRON IV": 100,
-  "IRON III": 200,
-  "IRON II": 300,
-  "IRON I": 400,
-  "BRONZE IV": 500,
-  "BRONZE III": 600,
-  "BRONZE II": 700,
-  "BRONZE I": 800,
-  "SILVER IV": 900,
-  "SILVER III": 1000,
-  "SILVER II": 1100,
-  "SILVER I": 1200,
-  "GOLD IV": 1300,
-  "GOLD III": 1400,
-  "GOLD II": 1500,
-  "GOLD I": 1600,
-  "PLATINUM IV": 1700,
-  "PLATINUM III": 1800,
-  "PLATINUM II": 1900,
-  "PLATINUM I": 2000,
-  "DIAMOND IV": 2100,
-  "DIAMOND III": 2200,
-  "DIAMOND II": 2300,
-  "DIAMOND I": 2500,
-  MASTER: 3000,
-  CHALLENGER: 5000
-};
+//OTHER RESOURCES
+import "./App.css";
+import ranks from "./Ranks";
 
 class App extends Component {
   //General State
@@ -93,6 +66,7 @@ class App extends Component {
       players: joined
     });
   };
+
   //Sort players by their ranks
   sortByRanks = (playerOne, playerTwo) => {
     let firstIndex =
@@ -104,7 +78,7 @@ class App extends Component {
 
     return secondIndex - firstIndex;
   };
-
+  
   //Fetch each player's stats when the component get mounted
   fetchPlayerData(player) {
     let joined = [];
@@ -158,90 +132,18 @@ class App extends Component {
     this.state.players.sort(this.sortByRanks);
     return (
       <div className="mainContainer">
-        <Header></Header>
-        <div className="topSection">
-          <img
-            src={this.state.loading ? tftLogoLoading : tftLogo}
-            alt="TFT LOGO"
-            className="tftLogo"
-          />
-          <h1>COMPARE YOUR TFT STATS</h1>
-        </div>
+        <Header />
+        <TopSection loading={this.state.loading} />
         <SearchBar searchPlayer={this.searchPlayer} />
-        <ErrorSnackbar ref={this.errSnackBarRef} />
+
         {!this.state.empty && (
           <div className="playersInfo">
-            <div className="bubbles">
-              {this.state.players.map((player, i) => {
-                return (
-                  <PlayerBubble
-                    key={player.data.platformInfo.platformUserId}
-                    playerIcon={player.data.platformInfo.avatarUrl}
-                    playerName={player.data.platformInfo.platformUserIdentifier}
-                    onDelete={() => {
-                      this.handleDelete(i);
-                    }}
-                  />
-                );
-              })}
-            </div>
-            <section className="playersTable">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Rank</th>
-                    <th scope="col" colSpan="2">
-                      Player
-                    </th>
-
-                    <th scope="col">Tier icon</th>
-                    <th scope="col">Tier</th>
-                    <th scope="col">Points</th>
-                    <th scope="col">Win %</th>
-                    <th scope="col">Wins</th>
-                    <th scope="col">Losses</th>
-                    <th scope="col">Game Played</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.players.map((player, i) => {
-                    return (
-                      <Player
-                        key={player.data.platformInfo.platformUserId}
-                        rank={i}
-                        icon={player.data.platformInfo.avatarUrl}
-                        name={player.data.platformInfo.platformUserIdentifier}
-                        tierIcon={
-                          player.data.segments[0].stats.tier.metadata.imageUrl
-                        }
-                        tierValue={
-                          player.data.segments[0].stats.tier.displayValue
-                        }
-                        lp={
-                          player.data.segments[0].stats.leaguePoints
-                            .displayValue
-                        }
-                        winRate={
-                          player.data.segments[0].stats.wlPercentage
-                            .displayValue
-                        }
-                        wins={player.data.segments[0].stats.wins.displayValue}
-                        losses={
-                          player.data.segments[0].stats.losses.displayValue
-                        }
-                        gamePlayed={
-                          player.data.segments[0].stats.matchesPlayed
-                            .displayValue
-                        }
-                      />
-                    );
-                  })}
-                </tbody>
-              </table>
-            </section>
+            <PlayerBubbles players={this.state.players} />
+            <Table players={this.state.players} />
           </div>
         )}
-        <Footer></Footer>
+        <ErrorSnackbar ref={this.errSnackBarRef} />
+        <Footer />
       </div>
     );
   }

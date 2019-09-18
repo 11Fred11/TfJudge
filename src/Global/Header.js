@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import tfJudgeLogo from "../images/TFJudge-logo.svg";
+import "./Header.css";
 
 export class Header extends Component {
   render() {

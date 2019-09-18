@@ -144,4 +144,7 @@
   .search-form {
     width: 70vw;
   }
+  .search-option div svg {
+    fill: #6b6b6b;
+  }
 }

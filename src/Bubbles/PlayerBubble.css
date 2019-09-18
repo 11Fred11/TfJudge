@@ -1,3 +1,10 @@
+.bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5vh 0 5vh 0;
+  width: 100%;
+}
 .overlay {
   border-radius: 50%;
   position: absolute;
@@ -24,7 +31,7 @@
   left: 0;
 }
 
-.title {
+/* .title {
   position: absolute;
   left: 1.1vw;
   top: 8vh;
@@ -32,7 +39,7 @@
   font-size: 90%;
   text-align: center;
   color: #5a6674;
-}
+} */
 
 .button {
   position: absolute;
