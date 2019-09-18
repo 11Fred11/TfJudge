@@ -36,7 +36,30 @@ h1 {
   text-align: center;
   /*margin-top: calc(7em + 7vw);*/
 }
+table {
+  border-collapse: collapse;
+  border-spacing: 10px;
+  text-align: center;
+}
+td {
+  padding-right: 1.5vw;
+  padding-bottom: 1.5vh;
+  padding-top: 1.5vh;
+  padding-left: 1.5vw;
+}
+.thead {
+  text-align: center;
+  padding: 1.5vw;
+}
 
+tbody tr:nth-child(odd) {
+  background-color: #121121;
+  color: #7986a3;
+}
+tbody tr:first-child td {
+  background-color: #41b7a1;
+  color: #182338;
+}
 .bubbles {
   display: flex;
   justify-content: center;
@@ -55,7 +78,12 @@ h1 {
   border-radius: 5px;
   margin: 0 0 10% 0;
 }
-
+tbody:before {
+  content: "@";
+  display: block;
+  line-height: 10px;
+  text-indent: -99999px;
+}
 footer {
   position: absolute;
   bottom: 0;
