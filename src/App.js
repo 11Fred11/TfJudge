@@ -112,7 +112,7 @@ class App extends Component {
           );
           this.playerNames.splice(index, 1);
           this.errSnackBarRef.current.openSnackBar(
-            "Make sure you have played your placement matches!",
+            "Hmm... Make sure you picked the right Server !",
             "PLAYER NOT FOUND !"
           );
           let empty = this.state.empty;

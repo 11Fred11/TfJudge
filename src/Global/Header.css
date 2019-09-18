@@ -12,7 +12,7 @@ header {
 }
 
 header > nav > a > svg {
-  margin: 0 3% 0 3%;
+  margin: 0 10px 0 10px;
 }
 header > img {
   width: 150px;
@@ -28,4 +28,9 @@ nav {
 
 .socialIcon:hover > path {
   fill: #fff;
+}
+@media screen and (max-device-width: 585px) {
+  .tftLogo {
+    width: 110px;
+  }
 }

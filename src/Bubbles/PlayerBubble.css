@@ -73,7 +73,7 @@
   position: relative;
   bottom: 3px;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-device-width: 585px) {
   .bubbleContainer {
     margin: 4%;
   }

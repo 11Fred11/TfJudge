@@ -1,4 +1,4 @@
-@media screen and (max-width: 850px) {
+@media screen and (max-device-width: 585px) {
   .mobile-optimised td:before {
     content: attr(data-th);
     display: block;
@@ -31,7 +31,7 @@
     margin-bottom: 10px;
   }
   .mytable {
-    width: 70vw;
+    width: 75vw;
     margin: 0 auto;
     max-width: 960px;
     border-collapse: collapse;

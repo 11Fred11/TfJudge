@@ -81,7 +81,7 @@ html {
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-device-width: 585px) {
   .errorSnackbar {
     width: 90%;
   }
