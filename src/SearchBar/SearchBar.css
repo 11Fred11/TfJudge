@@ -130,17 +130,17 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 14vh;
+  height: auto;
 }
 .coloredSpan {
   color: #41b7a1;
   font-size: 10pt;
 }
 .searchHint {
-  margin-top: auto;
+  margin-top: 15%;
 }
 
-@media only screen and (max-device-width: 850px) {
+@media screen and (max-width: 850px) {
   .search-form {
     width: 70vw;
   }

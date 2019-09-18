@@ -7,3 +7,9 @@
   height: 10%;
   width: auto;
 }
+@media screen and (max-width: 850px) {
+  .tierIcon {
+    width: 45px;
+    height: auto;
+  }
+}

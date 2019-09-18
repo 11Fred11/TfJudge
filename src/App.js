@@ -78,7 +78,7 @@ class App extends Component {
 
     return secondIndex - firstIndex;
   };
-  
+
   //Fetch each player's stats when the component get mounted
   fetchPlayerData(player) {
     let joined = [];
@@ -138,7 +138,10 @@ class App extends Component {
 
         {!this.state.empty && (
           <div className="playersInfo">
-            <PlayerBubbles players={this.state.players} />
+            <PlayerBubbles
+              players={this.state.players}
+              delete={this.handleDelete}
+            />
             <Table players={this.state.players} />
           </div>
         )}

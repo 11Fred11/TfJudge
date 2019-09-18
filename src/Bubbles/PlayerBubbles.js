@@ -11,7 +11,7 @@ const PlayerBubbles = props => {
             key={player.data.platformInfo.platformUserId}
             playerIcon={player.data.platformInfo.avatarUrl}
             onDelete={() => {
-              this.handleDelete(i);
+              props.delete(i);
             }}
           />
         );

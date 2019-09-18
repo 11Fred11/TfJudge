@@ -8,11 +8,14 @@ body {
   background: #dedede;
   color: #7986a3;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", "Roboto";
   background-color: #121121;
   background-image: url("images/Background-splash.jpg");
   background-size: cover;
   background-position: center center;
+}
+body table {
+  font-weight: bold;
 }
 
 .mainContainer {

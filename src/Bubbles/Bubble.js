@@ -1,7 +1,7 @@
 import React from "react";
 import binIcon from "../images/delete-bin-50.png";
 
-const playerBubble = props => {
+const Bubble = props => {
   return (
     <div className="bubbleContainer">
       <img src={props.playerIcon} alt="Profile icon" className="bubble" />
@@ -18,4 +18,4 @@ const playerBubble = props => {
   );
 };
 
-export default playerBubble;
+export default Bubble;

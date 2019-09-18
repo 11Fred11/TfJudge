@@ -1,11 +1,12 @@
 import React from "react";
 import Player from "./Player.js";
-import './Table.css';
+import "./MobileCards.css";
+import "./Table.css";
 
 const Table = props => {
   return (
     <section className="playersTable">
-      <table>
+      <table className="mytable mobile-optimised">
         <thead>
           <tr>
             <th scope="col">Rank</th>
