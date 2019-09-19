@@ -1,0 +1,88 @@
+.errorSnackbar {
+  display: flex;
+  visibility: hidden;
+  width: 400px;
+  background-color: #ff5859;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 10px;
+  position: fixed;
+  z-index: 1;
+  bottom: 2%;
+  font-size: 2.6em;
+}
+.closeButton {
+  width: 3%;
+  position: absolute;
+  top: 8%;
+  left: 95%;
+}
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.errorIcon {
+  padding-right: 5%;
+  padding-left: 1%;
+  flex-basis: 15%;
+  width: 17%;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.msgtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 0.6em;
+  color: #202b43;
+  margin: 0% 0% 1% 0%;
+}
+.msgBody {
+  font-family: roboto, sans-serif;
+  font-weight: 200;
+  font-size: 0.4em;
+  color: #fff;
+  margin-right: 25%;
+  margin: 1% 0% 1% 0%;
+}
+html {
+  font-size: calc(1em + 1vw);
+}
+
+.errorSnackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.3s;
+  animation: fadein 0.3s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 2%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 2%;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-device-width: 585px) {
+  .errorSnackbar {
+    width: 90%;
+  }
+}

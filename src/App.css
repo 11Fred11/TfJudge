@@ -1,34 +1,42 @@
-table {
-  border-spacing: 10px;
-  text-align: center;
+#root {
+  overflow-x: hidden;
+  height: 100%;
 }
-td {
-  padding-right: 1.5vw;
-  padding-bottom: 1.5vh;
-  padding-top: 1.5vh;
-  padding-left: 1.5vw;
-}
-.thead {
-  text-align: center;
-  padding: 1.5vw;
-}
-.profileIcon {
-  border-radius: 50%;
-  max-height: 4.5vh;
-}
-.tierIcon {
-  height: 17%;
-  width: auto;
-}
-tbody tr:nth-child(odd) {
-  background-color: #182338;
+body {
+  height: 100vh;
+  margin: 0;
+  background: #dedede;
   color: #7986a3;
+  font-size: 13px;
+  font-family: "Montserrat", "Roboto";
+  background-color: #121121;
+  background-image: url("images/Background-splash.jpg");
+  background-size: cover;
+  background-position: center center;
 }
-tbody tr:first-child td {
-  background-color: #41b7a1;
-  color: #182338;
+body table {
+  font-weight: bold;
 }
-.flex {
+
+.mainContainer {
   display: flex;
-  margin: 5vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+.playersInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+@media screen and (max-device-width: 585px) {
+  .playersInfo {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

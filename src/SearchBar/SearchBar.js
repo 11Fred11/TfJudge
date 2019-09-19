@@ -4,29 +4,35 @@ import "./SearchBar.css";
 const searchBar = props => {
   let player = { name: "", region: "EUW" };
 
+  //Prevent Form submit handler
   function handleSubmit(e) {
     e.preventDefault();
   }
+
+  //Pass player values to the parent componenet handler
   function handleSearch(e) {
-    e.preventDefault();
     props.searchPlayer(player);
+    document.getElementById("inputsearch").value = "";
   }
+
+  //Handle input change and update the local player.name variable
   function handleInputChange(e) {
     player.name = e.target.value;
   }
+
+  //Handle Radio button change and update the local player.region variable
   function handleRegionChange(e) {
     player.region = e.target.value;
   }
   return (
-    <div>
+    <div className="searchSection">
       <form className="search-form" onSubmit={handleSubmit}>
         <input
           type="search"
           className="search-input"
           placeholder="Search"
-          onFocus={e => (e.target.placeholder = "")}
-          onBlur={e => (e.target.placeholder = "Search")}
           onChange={handleInputChange}
+          id="inputsearch"
         />
         <button type="submit" className="search-button" onClick={handleSearch}>
           <svg className="submit-button">
@@ -177,14 +183,14 @@ const searchBar = props => {
             <input
               name="type"
               type="radio"
-              defaultValue="JPN"
-              id="JPN"
+              defaultValue="JP"
+              id="JP"
               onChange={handleRegionChange}
             />
-            <label htmlFor="JPN">
+            <label htmlFor="JP">
               <svg
                 version="1.1"
-                id="JPN"
+                id="JP"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 x="0px"
@@ -254,14 +260,14 @@ const searchBar = props => {
             <input
               name="type"
               type="radio"
-              defaultValue="TRK"
-              id="TRK"
+              defaultValue="TR"
+              id="TR"
               onChange={handleRegionChange}
             />
-            <label htmlFor="TRK">
+            <label htmlFor="TR">
               <svg
                 version="1.1"
-                id="TRK"
+                id="TR"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 x="0px"
@@ -301,6 +307,10 @@ const searchBar = props => {
           </div>
         </div>
       </form>
+      <div className="searchHint">
+        Use <span className="coloredSpan">player ID</span> or
+        <span className="coloredSpan"> Username</span>
+      </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="0"

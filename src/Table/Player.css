@@ -1,0 +1,15 @@
+.profileIcon {
+  border: 2px solid #41b7a1;
+  border-radius: 50%;
+  max-height: 4.5vh;
+}
+.tierIcon {
+  height: 10%;
+  width: auto;
+}
+@media screen and (max-device-width: 585px) {
+  .tierIcon {
+    width: 45px;
+    height: auto;
+  }
+}
