@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 5vh 0 5vh 0;
+  margin: 5vh 0 2vh 0;
   width: 65vw;
 }
 .overlay {

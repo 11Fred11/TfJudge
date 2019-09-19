@@ -142,6 +142,7 @@ class App extends Component {
               players={this.state.players}
               delete={this.handleDelete}
             />
+            <p className="deleteHint">Click an icon to delete the player</p>
             <Table players={this.state.players} />
           </div>
         )}

@@ -34,6 +34,11 @@ body table {
   margin-left: 2vw;
   margin-right: 2vw;
 }
+.deleteHint {
+  all: unset;
+  font-size: 9pt;
+  margin-bottom: 3vh;
+}
 @media screen and (max-device-width: 585px) {
   .playersInfo {
     margin-left: auto;

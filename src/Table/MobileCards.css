@@ -23,12 +23,12 @@
   }
 
   tbody tr td:nth-child(5) {
-    font-size: 16pt;
-    font-weight: bold;
+    font-size: 15pt !important;
     border-color: #259c86;
-    box-shadow: 0px 0px 4px #040508;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  }
+  tbody > tr > td:nth-child(5):before {
+    font-size: 20pt !important;
+    font-weight: bold !important;
   }
   .mytable {
     width: 75vw;
