@@ -27,6 +27,7 @@ const Table = props => {
           {props.players.map((player, i) => {
             return (
               <Player
+                id={player.data.platformInfo.platformUserId}
                 key={player.data.platformInfo.platformUserId}
                 rank={i}
                 icon={player.data.platformInfo.avatarUrl}

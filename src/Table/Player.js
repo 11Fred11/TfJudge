@@ -1,9 +1,9 @@
 import React from "react";
 import "./Player.css";
 
-const player2 = props => {
+const player = props => {
   return (
-    <tr>
+    <tr id={props.id}>
       <td data-th="Rank">#{props.rank + 1}</td>
       <td data-th="Player Icon">
         <img src={props.icon} alt="Player icon" className="profileIcon" />
@@ -22,4 +22,4 @@ const player2 = props => {
   );
 };
 
-export default player2;
+export default player;

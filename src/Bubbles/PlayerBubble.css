@@ -26,8 +26,8 @@
   border: 2px solid #41b7a1;
   border-radius: 50%;
   position: absolute;
-  width: calc(2em + 2vw);
-  height: calc(2em + 2vw);
+  width: calc(2.5em + 2.5vw);
+  height: calc(2.5em + 2.5vw);
   left: 0;
 }
 
@@ -43,7 +43,7 @@
 
 .button {
   position: absolute;
-  width: calc(2em + 2vw);
+  width: calc(2.5em + 2.5vw);
   right: 0%;
   top: 30%;
   text-align: center;
@@ -63,8 +63,8 @@
 }
 .bubbleContainer {
   position: relative;
-  width: calc(2em + 2vw);
-  height: calc(2em + 2vw);
+  width: calc(2.5em + 2.5vw);
+  height: calc(2.5em + 2.5vw);
   margin: 1vw;
 }
 
@@ -76,5 +76,8 @@
 @media screen and (max-device-width: 585px) {
   .bubbleContainer {
     margin: 4%;
+  }
+  .bubbles {
+    width: 80vw;
   }
 }

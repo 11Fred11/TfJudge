@@ -103,6 +103,13 @@ class App extends Component {
             empty: false,
             players: joined
           });
+          if (window.innerWidth <= 610) {
+            document
+              .getElementById(player.data.platformInfo.platformUserId)
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+          }
         } else {
           console.log("error : player not found");
 
