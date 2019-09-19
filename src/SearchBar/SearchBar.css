@@ -49,6 +49,9 @@
 }
 .search-option {
   display: flex;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   position: absolute;
   text-align: right;
   top: 10px;
@@ -128,6 +131,9 @@
 }
 .searchSection {
   display: flex;
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;

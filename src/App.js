@@ -10,7 +10,7 @@ import { Footer } from "./Global/Footer";
 
 //OTHER RESOURCES
 import "./App.css";
-import ranks from "./Ranks";
+import rankSys from "./Ranks";
 
 class App extends Component {
   //General State
@@ -70,10 +70,11 @@ class App extends Component {
   //Sort players by their ranks
   sortByRanks = (playerOne, playerTwo) => {
     let firstIndex =
-      ranks[playerOne.data.segments[0].stats.tier.displayValue] +
+      rankSys.ranks[playerOne.data.segments[0].stats.tier.displayValue] +
       playerOne.data.segments[0].stats.leaguePoints.value;
+
     let secondIndex =
-      ranks[playerTwo.data.segments[0].stats.tier.displayValue] +
+      rankSys.ranks[playerTwo.data.segments[0].stats.tier.displayValue] +
       playerTwo.data.segments[0].stats.leaguePoints.value;
 
     return secondIndex - firstIndex;
@@ -111,8 +112,6 @@ class App extends Component {
               });
           }
         } else {
-          console.log("error : player not found");
-
           //Find the index of this player and delete it from the list of inputs;
           let index = this.playerNames.findIndex(
             item => item.name === player.name
