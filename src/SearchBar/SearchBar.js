@@ -183,14 +183,14 @@ const searchBar = props => {
             <input
               name="type"
               type="radio"
-              defaultValue="JPN"
-              id="JPN"
+              defaultValue="JP"
+              id="JP"
               onChange={handleRegionChange}
             />
-            <label htmlFor="JPN">
+            <label htmlFor="JP">
               <svg
                 version="1.1"
-                id="JPN"
+                id="JP"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 x="0px"
@@ -260,14 +260,14 @@ const searchBar = props => {
             <input
               name="type"
               type="radio"
-              defaultValue="TRK"
-              id="TRK"
+              defaultValue="TR"
+              id="TR"
               onChange={handleRegionChange}
             />
-            <label htmlFor="TRK">
+            <label htmlFor="TR">
               <svg
                 version="1.1"
-                id="TRK"
+                id="TR"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 x="0px"
