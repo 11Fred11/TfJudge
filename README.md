@@ -44,55 +44,48 @@
 </p>
 <br>
 
-> _This is a project I made in my BioInformatics Class._
+> _As I have fun playing TFT, I made this website in order to compare my stats to my friends' and keep the challenging spirit. It was an excellent opportunity for me to learn React and sharpen my skills in UI & UX and resonsiveness._
 
-A desktop application that splits a genome sequence into words of length k, then generates a `Boolean` | `Frequency` | `Occurence` | `TFIDF` matrix I use later to train a classifier.
+A website to compare Teamfight Tactics stats.
 
 ### Built With
 
 <p align="center">
-  <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/howto.gif">
+  <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/used.png">
 </p>
 
-- [PYTHON](<https://en.wikipedia.org/wiki/Python_(genus)>) A genus of constricting snakes in the Pythonidae family living in the Eastern Hemisphere.
-- [TKINTER](https://wiki.python.org/moin/TkInter) : _Graphical User Interface package_ | Creates the UI.
-- [NLTK](https://www.nltk.org/) : _Natural Language Toolkit_ | Generates the `ngrams`.
-- [NUMPY](http://www.numpy.org/) : _Package for scientific computing_ | Helps with N-dimensional array objects.
+- [CREATE-REACT-APP](https://create-react-app.dev/docs/getting-started) officially supported package to bootstrap a react app with minimum configuration.
+- [REACT.JS](https://reactjs.org/) : _JavaScript library for building user interfaces._
+- [HTML5](https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/html5.jpg) : Next level Programing Language :roll_eyes: ...
+- [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3) : _the latest evolution of the Cascading Style Sheets language_ | Makes your website look better :sunglasses: .
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
 <p align="center">
-  <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/Explained.png">
+  <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/howto.gif">
 </p>
 
-Fllow the steps mentionned in the UI and you should be fine.
+- Choose your region :japan: , and type the account ID or name :mag: .
+- Hover a player's bubble to delete :x: .
 
-<p align = "center">
-  <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/pattern-gif.gif">
-</p>
+:world_map: **Supported Regions :**
 
-:bulb: **Supported Regions :**
-
-1. Should be a `.txt` file.
-2. First couple of lines should have these points :
-   - Number of classes.
-   - Number of Sequences in each class.
-   - The beginning of a class starting from `0`.
+- EUW : Europe West.
+- NA : North America.
+- JPN : Japan.
+- TRK : Turkey.
 
 <p align="center">
   <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/seq-img.png">
 </p>
 
-:star: **Next version 2.0**
+:bulb: **Next Version 2.0 :**
 
-The output file will be a `.txt` file containing a matrix.
-
-> I could've gone for an `Excel` file here but that won't be a optimal,
-> we are dealing with **huge** sequences here, and writing an Excel file will take unnecessary time.
-
-The DataMining software used afterward accepts `.txt` files and works just fine.
+[] **Pseresve Data** : this needs to get fixed ASAP, Right now, refreshing the page basically resets everything. you have to enter the names again. that sucks .. i know :unamused: ...
+[] **Save Team** : Save multiple teams (8 players) and import them in one click without having to type all the names every single time.
+[] **Delete All** : Delete all players at once.
 
 <!-- CONTACT -->
 
@@ -119,5 +112,3 @@ The DataMining software used afterward accepts `.txt` files and works just fine.
 [behance-url]: https://www.behance.net/fredhm
 [license-shield]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
 [license-url]: https://choosealicense.com/licenses/mit
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
