@@ -44,7 +44,7 @@
 </p>
 <br>
 
-> As I have fun playing TFT, I made this website in order to compare my stats to my friends' and keep the challenging spirit. It was an excellent opportunity for me to learn React and sharpen my skills in UI & UX and resonsiveness.
+> As I have fun playing TFT, I made this website in order to compare my stats to my friends' and keep the challenging spirit. It was an excellent opportunity for me to learn React and sharpen my skills in UI & UX and responsiveness.
 
 ## Built With
 
@@ -52,9 +52,9 @@
   <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/used.png">
 </p>
 
-- [CREATE-REACT-APP](https://create-react-app.dev/docs/getting-started) _officially supported package to bootstrap a react app with minimum configuration._
+- [CREATE-REACT-APP](https://create-react-app.dev/docs/getting-started) _officially supported package to bootstrap a React app with minimum configuration._
 - [REACT.JS](https://reactjs.org/) : _JavaScript library for building user interfaces._
-- [HTML5](https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/html5Meme.jpg) : _Next level Programing Language_ :roll_eyes:
+- [HTML5](https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/html5Meme.jpg) : _Next level Programming Language_ :roll_eyes:
 - [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3) : _Makes your website look better_ :sunglasses: .
 - [FIREBASE](https://firebase.google.com/) : _Mobile and web application development platform where TFJ is hosted._
 
@@ -78,7 +78,7 @@
 
 :bulb: **Next Version 2.0 :**
 
-- [ ] **Pseresve Data** : this needs to get fixed ASAP, Right now, refreshing the page basically resets everything. you have to enter the names again. that sucks .. I know :unamused: ...
+- [ ] **Pseresve Data** : This needs to get fixed ASAP, Right now, refreshing the page basically resets everything. You have to enter the names again. That sucks ... I know :unamused: ...
 - [ ] **Save Team** : Save multiple teams (8 players) and import them in one click without having to type all the names every single time.
 - [ ] **Delete All** : Delete all players at once.
 
