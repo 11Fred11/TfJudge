@@ -7,7 +7,7 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<h1 align="center">TFJUDGE</h1>
+
 <p align="center">
   <a href="https://github.com/10Fred10/TfJudge">
     <img src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/TFJudge-logo-colored.png" alt="Logo">
@@ -43,7 +43,6 @@
   <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/promo.png">
 </p>
 <br>
-_TL;DR :_ A website to compare Teamfight Tactics stats.
 
 > As I have fun playing TFT, I made this website in order to compare my stats to my friends' and keep the challenging spirit. It was an excellent opportunity for me to learn React and sharpen my skills in UI & UX and resonsiveness.
 
@@ -71,10 +70,10 @@ _TL;DR :_ A website to compare Teamfight Tactics stats.
 
 :world_map: **Supported Regions :**
 
-- EUW : Europe West.
-- NA : North America.
-- JPN : Japan.
-- TRK : Turkey.
+- **EUW** : Europe West.
+- **NA** : North America.
+- **JPN** : Japan.
+- **TRK** : Turkey.
 
 <p align="center">
   <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/seq-img.png">
@@ -82,9 +81,11 @@ _TL;DR :_ A website to compare Teamfight Tactics stats.
 
 :bulb: **Next Version 2.0 :**
 
-[] **Pseresve Data** : this needs to get fixed ASAP, Right now, refreshing the page basically resets everything. you have to enter the names again. that sucks .. i know :unamused: ...
-[] **Save Team** : Save multiple teams (8 players) and import them in one click without having to type all the names every single time.
-[] **Delete All** : Delete all players at once.
+- [ ] **Pseresve Data** : this needs to get fixed ASAP, Right now, refreshing the page basically resets everything. you have to enter the names again. that sucks .. i know :unamused: ...
+
+- [ ] **Save Team** : Save multiple teams (8 players) and import them in one click without having to type all the names every single time.
+
+- [ ] **Delete All** : Delete all players at once.
 
 <!-- CONTACT -->
 
