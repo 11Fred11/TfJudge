@@ -7,7 +7,7 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<h2 align="center">TFJUDGE</h2>
+<h1 align="center">TFJUDGE</h1>
 <p align="center">
   <a href="https://github.com/10Fred10/TfJudge">
     <img src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/TFJudge-logo-colored.png" alt="Logo">
@@ -16,12 +16,12 @@
   <p align="center">
     A website to track and compare your stats against your friends' in TeamFight Tactics game by Riot.
     <br />
-    <a href="https://tfjudge.fred.tools" target="blank"><strong>« GO TO WEBSITE »</strong></a>
+    <a href="https://tfjudge.fred.tools" target="_blank"><strong>« GO TO WEBSITE »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/10Fred10/TfJudge/issues" target="blank">Report Bug</a>
+    <a href="https://github.com/10Fred10/TfJudge/issues" target="_blank">Report Bug</a>
     ·
-    <a href="https://github.com/10Fred10/TfJudge/pulls" target="blank">Request Feature</a>
+    <a href="https://github.com/10Fred10/TfJudge/pulls" target="_blank">Request Feature</a>
   </p>
 </p>
 
@@ -30,7 +30,7 @@
 | Table of Contents                       |
 | --------------------------------------- |
 | [About the Project](#about-the-project) |
-| [Installation](#installation)           |
+| [Built with](#built-with)               |
 | [Usage](#usage)                         |
 | [Contact](#contact)                     |
 | [Acknowledgements](#acknowledgements)   |
@@ -43,12 +43,11 @@
   <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/promo.png">
 </p>
 <br>
+_TL;DR :_ A website to compare Teamfight Tactics stats.
 
-> _As I have fun playing TFT, I made this website in order to compare my stats to my friends' and keep the challenging spirit. It was an excellent opportunity for me to learn React and sharpen my skills in UI & UX and resonsiveness._
+> As I have fun playing TFT, I made this website in order to compare my stats to my friends' and keep the challenging spirit. It was an excellent opportunity for me to learn React and sharpen my skills in UI & UX and resonsiveness.
 
-A website to compare Teamfight Tactics stats.
-
-### Built With
+## Built With
 
 <p align="center">
   <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/used.png">
@@ -56,7 +55,7 @@ A website to compare Teamfight Tactics stats.
 
 - [CREATE-REACT-APP](https://create-react-app.dev/docs/getting-started) officially supported package to bootstrap a react app with minimum configuration.
 - [REACT.JS](https://reactjs.org/) : _JavaScript library for building user interfaces._
-- [HTML5](https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/html5.jpg) : Next level Programing Language :roll_eyes: ...
+- [HTML5](https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/html5Meme.jpg) : Next level Programing Language :roll_eyes: ...
 - [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3) : _the latest evolution of the Cascading Style Sheets language_ | Makes your website look better :sunglasses: .
 
 <!-- USAGE EXAMPLES -->
