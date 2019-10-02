@@ -76,10 +76,6 @@
 - **JPN** : Japan.
 - **TRK** : Turkey.
 
-<p align="center">
-  <img  src="https://raw.githubusercontent.com/10Fred10/TfJudge/master/readme-assets/seq-img.png">
-</p>
-
 :bulb: **Next Version 2.0 :**
 
 - [ ] **Pseresve Data** : this needs to get fixed ASAP, Right now, refreshing the page basically resets everything. you have to enter the names again. that sucks .. I know :unamused: ...
