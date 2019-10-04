@@ -1,5 +1,4 @@
 footer {
-  position: absolute;
-  bottom: 0;
-  height: 30px;
+  margin-top: calc(2em + 2vw);
+  margin-bottom: calc(1em + 1vw);
 }

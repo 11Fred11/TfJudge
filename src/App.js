@@ -139,8 +139,10 @@ class App extends Component {
     return (
       <div className="mainContainer">
         <Header />
-        <TopSection loading={this.state.loading} />
-        <SearchBar searchPlayer={this.searchPlayer} />
+        <div>
+          <TopSection loading={this.state.loading} />
+          <SearchBar searchPlayer={this.searchPlayer} />
+        </div>
 
         {!this.state.empty && (
           <div className="playersInfo">

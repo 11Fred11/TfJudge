@@ -20,12 +20,12 @@ body table {
 
 .mainContainer {
   display: flex;
-  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   min-height: 100vh;
   position: relative;
 }

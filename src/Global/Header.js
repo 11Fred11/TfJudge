@@ -6,7 +6,7 @@ export class Header extends Component {
   render() {
     return (
       <header>
-        <img src={tfJudgeLogo} alt="TFJudhe logo"></img>
+        <img src={tfJudgeLogo} alt="TFJudge logo"></img>
         <nav>
           <a href="https://github.com/10Fred10" target="blanc">
             <svg

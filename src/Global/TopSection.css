@@ -1,6 +1,8 @@
 .topSection {
   text-align: center;
-  margin-top: calc(6em + 6vw);
+}
+.tftLogo {
+  width: 100px;
 }
 h1 {
   font-family: "Montserrat", sans-serif;

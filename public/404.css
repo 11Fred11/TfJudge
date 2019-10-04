@@ -1,0 +1,24 @@
+body {
+  font-size: 13px;
+  font-family: "Montserrat", "Roboto";
+  background-color: #121121;
+  background-image: url("./Background-splash.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+.section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mold {
+  width: 400px;
+}
+
+.nfTitle {
+  color: #41b7a1;
+  text-align: center;
+}

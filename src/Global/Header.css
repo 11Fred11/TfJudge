@@ -1,18 +1,15 @@
 header {
-  position: absolute;
-  top: 40px;
+  display: flex;
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   justify-content: space-between;
   align-items: center;
   width: 95vw;
-  display: flex;
-  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -ms-flexbox;  /* TWEENER - IE 10 */
-  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  margin-bottom: calc(3em + 3vw);
+  margin-top: calc(1em + 1vw);
 }
 
-.tftLogo {
-  width: 130px;
-}
 
 header > nav > a > svg {
   margin: 0 10px 0 10px;
@@ -23,8 +20,8 @@ header > img {
 
 nav {
   display: flex;
-  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
 }
 
