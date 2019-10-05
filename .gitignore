@@ -8,6 +8,7 @@ yarn-error.log*
 firebase.json
 build
 .firebase
+confVariables.js
 
 # Runtime data
 pids

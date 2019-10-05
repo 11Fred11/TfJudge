@@ -12,17 +12,7 @@ import { Footer } from "./Global/Footer";
 
 //OTHER RESOURCES
 import "./App.css";
-import rankSys from "./Ranks";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBXLyyS4eFL_VCdP87mAW6HZonAyjQ5tNM",
-  authDomain: "tfjudge-d7578.firebaseapp.com",
-  databaseURL: "https://tfjudge-d7578.firebaseio.com",
-  projectId: "tfjudge-d7578",
-  storageBucket: "",
-  messagingSenderId: "804054466808",
-  appId: "1:804054466808:web:ee7be8ffe2491e602dbb0d"
-};
+import { ranks, firebaseConfig } from "./confVariables";
 
 class App extends Component {
   //General State
@@ -47,6 +37,7 @@ class App extends Component {
 
   //Update this.state with the searchBox input
   searchPlayer = player => {
+    console.log(ranks, firebaseConfig);
     if (player.name !== "" && player.region !== "") {
       if (this.playerNames.length === 8) {
         this.errSnackBarRef.current.openSnackBar(
@@ -82,11 +73,11 @@ class App extends Component {
   //Sort players by their ranks
   sortByRanks = (playerOne, playerTwo) => {
     let firstIndex =
-      rankSys.ranks[playerOne.data.segments[0].stats.tier.displayValue] +
+      ranks[playerOne.data.segments[0].stats.tier.displayValue] +
       playerOne.data.segments[0].stats.leaguePoints.value;
 
     let secondIndex =
-      rankSys.ranks[playerTwo.data.segments[0].stats.tier.displayValue] +
+      ranks[playerTwo.data.segments[0].stats.tier.displayValue] +
       playerTwo.data.segments[0].stats.leaguePoints.value;
 
     return secondIndex - firstIndex;
