@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import * as firebase from "firebase/app";
+import "firebase/analytics";
 //COMPONENETS
 import { Header } from "./Global/Header";
 import TopSection from "./Global/TopSection";
@@ -11,6 +13,16 @@ import { Footer } from "./Global/Footer";
 //OTHER RESOURCES
 import "./App.css";
 import rankSys from "./Ranks";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBXLyyS4eFL_VCdP87mAW6HZonAyjQ5tNM",
+  authDomain: "tfjudge-d7578.firebaseapp.com",
+  databaseURL: "https://tfjudge-d7578.firebaseio.com",
+  projectId: "tfjudge-d7578",
+  storageBucket: "",
+  messagingSenderId: "804054466808",
+  appId: "1:804054466808:web:ee7be8ffe2491e602dbb0d"
+};
 
 class App extends Component {
   //General State
@@ -134,6 +146,9 @@ class App extends Component {
   }
 
   render() {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
     // Sort the state with every new input
     this.state.players.sort(this.sortByRanks);
     return (
