@@ -33,8 +33,14 @@ const searchBar = props => {
           placeholder="Search"
           onChange={handleInputChange}
           id="inputsearch"
+          aria-label="Search"
         />
-        <button type="submit" className="search-button" onClick={handleSearch}>
+        <button
+          type="submit"
+          className="search-button"
+          onClick={handleSearch}
+          aria-label="Search"
+        >
           <svg className="submit-button">
             <use
               xmlnsXlink="http://www.w3.org/1999/xlink"

@@ -8,7 +8,11 @@ export class Header extends Component {
       <header>
         <img src={tfJudgeLogo} alt="TFJudge logo"></img>
         <nav>
-          <a href="https://github.com/10Fred10" target="blanc">
+          <a
+            href="https://github.com/10Fred10"
+            target="blanc"
+            aria-label="Visit the developer's Github Profile"
+          >
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +41,11 @@ export class Header extends Component {
               </g>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/in/fredhm/" target="blanc">
+          <a
+            href="https://www.linkedin.com/in/fredhm/"
+            target="blanc"
+            aria-label="Visit the developer's LinkedIn Profile"
+          >
             <svg
               version="1.1"
               id="Layer_1"
